@@ -2,7 +2,7 @@ import requests, json
 from bs4 import BeautifulSoup
 
 def get_assignments():
-    file = open('canvas_token.txt', 'r')
+    file = open('canvas_token.env.txt', 'r')
     token = file.read()
     file.close()
 
