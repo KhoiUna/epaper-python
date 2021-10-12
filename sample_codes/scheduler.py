@@ -1,6 +1,4 @@
 import sched, time
-import sys
-sys.path.insert(1, "/examples")
 from canvas import get_assignments
 
 s = sched.scheduler(time.time, time.sleep)
