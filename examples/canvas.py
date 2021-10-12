@@ -1,14 +1,12 @@
-import requests
+import requests, json
 from bs4 import BeautifulSoup
-import json
-
 
 def get_assignments():
-    file = open('canvas.env.txt', 'r')
+    file = open('canvas_token.txt', 'r')
     token = file.read()
     file.close()
 
-    course_id = '59622'  # cis
+    course_id = '64066'  # cis
 
     webpage = requests.get('https://una.instructure.com/api/v1/courses/' +
                            course_id + '/assignments', headers={"Authorization": "Bearer " + token})
