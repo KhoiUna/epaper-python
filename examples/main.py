@@ -77,7 +77,7 @@ def main():
         epd.sleep()
         time.sleep(3)
 
-        epd.Dev_exit()
+        # epd.Dev_exit()
 
     except IOError as e:
         logging.info(e)
