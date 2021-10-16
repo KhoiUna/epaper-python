@@ -6,7 +6,8 @@ import time
 import requests
 import logging
 from PIL import Image, ImageDraw, ImageFont
-from canvas import get_assignments
+from canvas import get_assignments, get_course_info, get_professor_info
+from get_weather import get_weather
 import os
 picdir = os.path.join(os.path.dirname(
     os.path.dirname(os.path.realpath(__file__))), 'pic')
@@ -36,14 +37,17 @@ def main():
         logo = Image.open(os.path.join(picdir, 'logo.bmp'))
 
         # Header
+        course_info = get_course_info()
+        prof_info = get_professor_info()
+
         draw = ImageDraw.Draw(Display)
         draw.text(
-            (10, 0), 'Information Systems in Organizations: CIS-236-01', font=title, fill=0)
-        draw.text((10, 50), 'Professor J. Matt Colburn | Office hours: Today - by appointment',
+            (10, 0), 'Information Systems in Organizations: ' + course_info["course_code"], font=title, fill=0)
+        draw.text((10, 50), 'Professor ' + prof_info["prof_name"] + ' | Office hours: ' + prof_info["office_hours"],
                 font=medium, fill=0)
-        draw.text((10, 80), 'Email: jmcolburn@una.edu  |  Phone number: (256)-765-4955',
+        draw.text((10, 80), 'Email: '+ prof_info["email"] + ' |  Phone number: ' + prof_info["phone_number"],
                 font=font18, fill=0)
-        draw.text((10, 110), 'Class starts: 8h  -  Class ends: 9h45 ',
+        draw.text((10, 110), 'Class starts: ' + course_info["start_at"] + ' -  Class ends: ' + course_info["end_at"],
                 font=font18, fill=0)
         # draw.line((10, 130, 500, 80), fill = 0) #horizontal
         draw.line((0, 148, 642, 148), fill=0)
@@ -58,7 +62,7 @@ def main():
         # Footer  
         draw.line((0, 400, 800, 400), fill=0)
         draw.text((5, 410), 'Max occupancy: 10 people', font=title, fill=0)
-        draw.text((5, 440), 'Temperature: ' + str(temp) +
+        draw.text((5, 440), 'Temperature: ' + str(get_weather()) +
                 u'\u00b0F', font=title, fill=0)
         draw.text((280, 453), '(Temperature updated at ' +
                 time.strftime('%H:%M') + ')', font=font18, fill=0)
