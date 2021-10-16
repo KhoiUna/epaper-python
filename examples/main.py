@@ -3,7 +3,7 @@
 from waveshare_epd import epd7in5_V2
 import sys
 import time
-import requests
+import sched, time
 import logging
 from PIL import Image, ImageDraw, ImageFont
 from canvas import get_assignments, get_course_info, get_professor_info
@@ -88,4 +88,14 @@ def main():
         exit()
 
 if __name__ == "__main__":
-    main()
+    s = sched.scheduler(time.time, time.sleep)
+    def update_epd():
+        print("From print_time", time.time(), ":")
+        main()
+        print("------------------------")
+
+    interval = 10 # in seconds
+    while True:
+        s.enter(interval, 1, update_epd)
+        s.run()
+    
