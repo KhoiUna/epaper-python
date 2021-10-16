@@ -42,7 +42,7 @@ def main():
 
         draw = ImageDraw.Draw(Display)
         draw.text(
-            (10, 0), 'Information Systems in Organizations: ' + course_info["course_code"], font=title, fill=0)
+            (10, 0), prof_info["course_name"] + ': ' + course_info["course_code"], font=title, fill=0)
         draw.text((10, 50), 'Professor ' + prof_info["prof_name"] + ' | Office hours: ' + prof_info["office_hours"],
                 font=medium, fill=0)
         draw.text((10, 80), 'Email: '+ prof_info["email"] + ' |  Phone number: ' + prof_info["phone_number"],
