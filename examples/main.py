@@ -4,7 +4,6 @@ from waveshare_epd import epd7in5_V2
 import sys
 import time
 import requests
-import datetime
 import logging
 from PIL import Image, ImageDraw, ImageFont
 from canvas import get_assignments
