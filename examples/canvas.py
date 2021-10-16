@@ -6,7 +6,7 @@ def get_assignments():
     token = file.read()
     file.close()
 
-    course_id = '64066'  # cis
+    course_id = '64066'  #course id
 
     webpage = requests.get('https://una.instructure.com/api/v1/courses/' +
                            course_id + '/assignments', headers={"Authorization": "Bearer " + token})
@@ -28,4 +28,4 @@ def get_assignments():
     return output_string
 
 
-#print(get_assignments())
+print(get_assignments())

@@ -1,10 +1,10 @@
 import sched, time
-from canvas import get_assignments
+# from canvas import get_assignments
 
 s = sched.scheduler(time.time, time.sleep)
 def print_time(a='default'):
     print("From print_time", time.time(), a, ":")
-    print(get_assignments())
+    # print(get_assignments())
     print("------------------------")
 
 def print_some_times():
