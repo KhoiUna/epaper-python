@@ -55,14 +55,7 @@ def main():
         #draw.text((10, 190), '- Content: Chapter 1 - 4', font=medium, fill=0)
         #draw.text((10, 215), '- Date: ' + datetime.date.today().isoformat(), font=medium, fill=0)
 
-        # Footer
-        file = open('weather.env.txt', 'r')
-        API_key = file.read()
-        file.close()
-        url = "https://api.openweathermap.org/data/2.5/weather?appid=" + \
-            API_key + "&zip=35632&units=imperial"
-        temp = requests.get(url).json()['main']['temp']
-
+        # Footer  
         draw.line((0, 400, 800, 400), fill=0)
         draw.text((5, 410), 'Max occupancy: 10 people', font=title, fill=0)
         draw.text((5, 440), 'Temperature: ' + str(temp) +
@@ -75,10 +68,7 @@ def main():
         epd.display(epd.getbuffer(Display))
         time.sleep(2)
 
-        # logging.info("Clear...")
-        # epd.init()
-        # epd.Clear()
-
+        # Set to sleep
         logging.info("Go to sleep...")
         epd.sleep()
         time.sleep(3)
