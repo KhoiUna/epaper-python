@@ -1,4 +1,8 @@
-# Instructions
+# Introduction
+
+- Use Waveshare ePaper epd7in5_V2 & Raspberry Pi Zero.
+
+## Instructions
 
 - First, create an [OpenWeather](https://openweathermap.org/) account so we can get temperature data and display it on our ePaper.
 - Then, go to [here](https://home.openweathermap.org/api_keys) to obtain your API key.
